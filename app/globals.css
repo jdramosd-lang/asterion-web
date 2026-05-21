@@ -1,0 +1,264 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: 'AlbertusNova';
+  src: url('/fonts/AlbertusNova-thin.otf') format('opentype');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'AlbertusNova';
+  src: url('/fonts/AlbertusNova-light.otf') format('opentype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'AlbertusNova';
+  src: url('/fonts/AlbertusNova-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'AlbertusNova';
+  src: url('/fonts/albertusNova-black.otf') format('opentype');
+  font-weight: 900;
+}
+
+/* ============================================
+   ASTERIÓN: GUARDIÁN DEL LABERINTO
+   Paleta de colores del moodboard
+   ============================================ */
+
+:root {
+  /* Colores principales del moodboard */
+  --deep-black: #0C1519;
+  --dark-brown: #3A3534;
+  --dark-green-gray: #162127;
+  --olive-brown: #724B39;
+  --bone-beige: #CF9D7B;
+
+  /* Colores derivados */
+  --background: #3a3534;
+  --foreground: #CF9D7B;
+  --card: #162127;
+  --card-foreground: #CF9D7B;
+  --popover: #162127;
+  --popover-foreground: #CF9D7B;
+  --primary: #CF9D7B;
+  --primary-foreground: #0C1519;
+  --secondary: #3A3534;
+  --secondary-foreground: #CF9D7B;
+  --muted: #162127;
+  --muted-foreground: #8B7355;
+  --accent: #724B39;
+  --accent-foreground: #CF9D7B;
+  --destructive: #8B3A3A;
+  --destructive-foreground: #CF9D7B;
+  --border: #3A3534;
+  --input: #162127;
+  --ring: #724B39;
+  --radius: 0.5rem;
+
+  /* Colores adicionales para efectos */
+  --glow-color: rgba(207, 157, 123, 0.3);
+  --overlay-dark: rgba(12, 21, 25, 0.85);
+  --overlay-medium: rgba(12, 21, 25, 0.6);
+}
+
+@theme inline {
+  --font-sans: 'AlbertusNova', serif;
+  --font-serif: 'AlbertusNova', 'Times New Roman', serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-deep-black: var(--deep-black);
+  --color-dark-brown: var(--dark-brown);
+  --color-dark-green-gray: var(--dark-green-gray);
+  --color-olive-brown: var(--olive-brown);
+  --color-bone-beige: var(--bone-beige);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ============================================
+   ANIMACIONES PERSONALIZADAS
+   ============================================ */
+
+/* Animación de partículas flotantes */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(-10px);
+  }
+
+  75% {
+    transform: translateY(-30px) translateX(5px);
+  }
+}
+
+/* Animación de neblina */
+@keyframes fog {
+
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateX(0);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateX(100px);
+  }
+}
+
+/* Animación de pulso de glow */
+@keyframes glow-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(207, 157, 123, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(207, 157, 123, 0.5);
+  }
+}
+
+/* Animación de aparición desde abajo */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de aparición con escala */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animación del loader - FÁCILMENTE EDITABLE */
+/* ============================================
+   LOADER INICIAL - CONFIGURACIÓN
+   Puedes editar estos valores para personalizar:
+   - Duración: cambia 'animation-duration'
+   - Colores: cambia los colores en el gradient
+   - Tamaño: cambia width y height
+   ============================================ */
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes loader-fade-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Clase para scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos de scrollbar personalizados */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--deep-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--olive-brown);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bone-beige);
+}
+
+/* Selección de texto personalizada */
+::selection {
+  background: var(--olive-brown);
+  color: var(--bone-beige);
+}
