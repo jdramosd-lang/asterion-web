@@ -126,7 +126,7 @@ export function HeroSection() {
           <div className="flex-1 flex items-center justify-center">
             <div className="relative w-full max-w-3xl flex items-center justify-center">
               <img
-                src="/images/minotauro.png"
+                src="/images/Minotauro.png"
                 alt="Minotauro"
                 className="max-w-full max-h-[950px] object-contain mx-auto scale-155"
               />

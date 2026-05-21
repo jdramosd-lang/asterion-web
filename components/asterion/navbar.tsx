@@ -35,7 +35,7 @@ export function Navbar() {
             className="flex items-center hover:opacity-80 transition-opacity"
           >
             <img
-              src="/images/logo.png"
+              src="/images/Logo.png"
               alt="Asterión"
               className="h-22 md:h-26 w-auto object-contain"
             />
