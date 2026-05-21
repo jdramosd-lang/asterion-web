@@ -32,7 +32,7 @@ export function PdfSection() {
     >
       {/* Efecto de luz ambiental */}
       <div className="absolute inset-0">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#724B39]/10 rounded-full blur-3xl" />
+        <div className="absolute top-[75%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] bg-[#CF9D7B]/4 rounded-full blur-2xl" />
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
